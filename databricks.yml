@@ -5,7 +5,7 @@ include:
   - resources/*.yml
 
 targets:
-  dev:
+  development:
     mode: development
     default: true
     workspace:
