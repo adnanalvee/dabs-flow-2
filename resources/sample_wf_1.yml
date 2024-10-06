@@ -1,8 +1,9 @@
 resources:
   jobs:
-    sample_wf_1:
+    big_workflow_1:
       name: big_workflow_1
-
+      tags:
+        environment: ${bundle.target}
       tasks:
         - task_key: taskA
           notebook_task:
