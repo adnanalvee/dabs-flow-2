@@ -1,4 +1,4 @@
-name: Deploy Databricks Bundle to DEV Environment
+name: Deploy Databricks Bundle to QA Environment
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ jobs:
 
       # Deploy the bundle to the "dev" target as defined
       # in the bundle's settings file.
-      - run: databricks bundle deploy -t development
+      - run: databricks bundle deploy -t qa
         working-directory: .
         env:
           DATABRICKS_BUNDLE_ENV: qa
