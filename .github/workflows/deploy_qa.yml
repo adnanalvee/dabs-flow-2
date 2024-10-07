@@ -27,7 +27,7 @@ jobs:
       - run: databricks bundle deploy -t development
         working-directory: .
         env:
-          DATABRICKS_BUNDLE_ENV: development
+          DATABRICKS_BUNDLE_ENV: qa
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_URL_QA }}
           DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
           DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_SECRET }}
