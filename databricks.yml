@@ -1,11 +1,15 @@
 bundle:
   name: dabs-gitflow
 
+permissions:
+  - group_name: data_engineers
+    level: CAN_MANAGE
+
 include:
   - resources/*.yml
 
 targets:
-  dev:
+  development:
     mode: development
     default: true
     workspace:

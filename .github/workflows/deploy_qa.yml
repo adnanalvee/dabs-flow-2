@@ -5,13 +5,13 @@ on:
     types:
       - closed
     branches:
-      - develop
+      - qa
       
 
 jobs:
   push_bundle:
     if: github.event.pull_request.merged == true
-    name: "Development: Deploy Databricks Bundle"
+    name: "QA: Deploy Databricks Bundle"
     runs-on: ubuntu-latest
 
     steps:
@@ -22,12 +22,12 @@ jobs:
       # See https://github.com/databricks/setup-cli
       - uses: databricks/setup-cli@main
 
-      # Deploy the bundle to the "qa" target as defined
+      # Deploy the bundle to the "dev" target as defined
       # in the bundle's settings file.
       - run: databricks bundle deploy -t development
         working-directory: .
         env:
           DATABRICKS_BUNDLE_ENV: development
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_URL_DEV }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_URL_QA }}
           DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_SP_CLIENT_ID }}
           DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_SP_SECRET }}

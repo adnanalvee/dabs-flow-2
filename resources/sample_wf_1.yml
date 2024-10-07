@@ -1,8 +1,9 @@
 resources:
   jobs:
-    sample_wf_1:
-      name: sample_wf_1
-
+    big_workflow_1:
+      name: big_workflow_1
+      tags:
+        environment: ${bundle.target}
       tasks:
         - task_key: taskA
           notebook_task:
@@ -33,7 +34,7 @@ resources:
             spark_conf:
               spark.master: local[*, 4]
               spark.databricks.cluster.profile: singleNode
-            node_type_id: i3.xlarge
+            node_type_id: n1-standard-4
             custom_tags:
               ResourceClass: SingleNode
             spark_env_vars:
